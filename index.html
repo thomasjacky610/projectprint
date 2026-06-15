@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrinterFixPro — Expert Printer Support & Setup</title>
+<meta name="description" content="Professional printer setup, driver installation, and troubleshooting for HP, Canon, Epson & Brother printers. Available 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #f5f7fa; font-size: 14px; line-height: 1.6; }
+
+  /* NAV */
+  .nav { background: #1a3a6b; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-icon { width: 34px; height: 34px; background: #fff; border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+  .nav-logo-icon i { font-size: 18px; color: #1a3a6b; }
+  .nav-logo-text { font-size: 19px; font-weight: 600; color: #fff; letter-spacing: -0.3px; }
+  .nav-logo-text span { color: #4da3ff; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { font-size: 13px; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-phone { display: flex; align-items: center; gap: 7px; background: #2d5fa8; padding: 8px 16px; border-radius: 7px; font-size: 13px; color: #fff; font-weight: 500; text-decoration: none; transition: background 0.2s; }
+  .nav-phone:hover { background: #3a72c5; }
+
+  /* HERO */
+  .hero { background: #1a3a6b; padding: 60px 40px 70px; text-align: center; }
+  .hero-tag { display: inline-block; background: rgba(255,255,255,0.12); color: #fff; font-size: 12px; padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; letter-spacing: 0.05em; }
+  .hero h1 { font-size: 38px; font-weight: 600; color: #fff; margin-bottom: 14px; line-height: 1.25; }
+  .hero h1 span { color: #4da3ff; }
+  .hero p { font-size: 15px; color: rgba(255,255,255,0.78); margin-bottom: 30px; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.65; }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: #fff; color: #1a3a6b; font-size: 14px; font-weight: 600; padding: 11px 24px; border-radius: 7px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; text-decoration: none; transition: background 0.2s; }
+  .btn-primary:hover { background: #e8f0fd; }
+  .btn-secondary { background: transparent; color: #fff; font-size: 14px; font-weight: 500; padding: 11px 24px; border-radius: 7px; border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer; display: inline-flex; align-items: center; gap: 7px; text-decoration: none; transition: border-color 0.2s; }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); }
+
+  /* BRANDS BAR */
+  .brands-bar { background: #fff; border-bottom: 1px solid #e8edf5; padding: 0 40px; }
+  .brands-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; max-width: 900px; margin: 0 auto; }
+  .brand-item { padding: 16px 36px; border-right: 1px solid #e8edf5; display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; transition: background 0.15s; }
+  .brand-item:last-child { border-right: none; }
+  .brand-item:hover { background: #f0f5ff; }
+  .brand-item:hover .brand-name { color: #1a3a6b; }
+  .brand-icon { font-size: 22px; color: #1a3a6b; }
+  .brand-name { font-size: 12px; color: #6b7280; font-weight: 500; }
+
+  /* TRUST BAR */
+  .trust-bar { background: #f0f5ff; border-bottom: 1px solid #d0dff5; padding: 18px 40px; }
+  .trust-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1100px; margin: 0 auto; }
+  .trust-item { display: flex; align-items: center; gap: 12px; }
+  .trust-icon { font-size: 22px; color: #2d5fa8; flex-shrink: 0; }
+  .trust-text strong { display: block; font-size: 13px; font-weight: 600; color: #1a3a6b; }
+  .trust-text span { font-size: 12px; color: #6b7280; }
+
+  /* MAIN LAYOUT */
+  .main-wrap { display: grid; grid-template-columns: 1fr 360px; gap: 24px; padding: 32px 40px; max-width: 1200px; margin: 0 auto; }
+
+  /* SERVICES */
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #9ca3af; margin-bottom: 6px; }
+  .section-heading { font-size: 20px; font-weight: 600; color: #1a1a2e; margin-bottom: 18px; }
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .service-card { background: #fff; border: 1px solid #e8edf5; border-radius: 10px; padding: 18px; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+  .service-card:hover { border-color: #2d5fa8; box-shadow: 0 2px 12px rgba(45,95,168,0.08); }
+  .sc-icon { font-size: 24px; color: #2d5fa8; margin-bottom: 10px; }
+  .sc-title { font-size: 14px; font-weight: 600; color: #1a1a2e; margin-bottom: 5px; }
+  .sc-desc { font-size: 12px; color: #6b7280; line-height: 1.55; }
+  .sc-link { font-size: 12px; color: #2d5fa8; margin-top: 10px; display: flex; align-items: center; gap: 4px; }
+
+  /* COMMON PROBLEMS */
+  .problems-box { background: #fff; border: 1px solid #e8edf5; border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .problems-title { font-size: 14px; font-weight: 600; color: #1a1a2e; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .problems-title i { color: #2d5fa8; font-size: 17px; }
+  .problems-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .problems-list li { font-size: 13px; color: #4b5563; display: flex; align-items: flex-start; gap: 9px; line-height: 1.5; }
+  .problems-list li i { color: #2d5fa8; font-size: 14px; margin-top: 2px; flex-shrink: 0; }
+
+  /* SUPPORT FORM */
+  .form-card { background: #fff; border: 1px solid #e8edf5; border-radius: 10px; overflow: hidden; position: sticky; top: 80px; }
+  .form-header { background: #1a3a6b; padding: 20px 22px; }
+  .form-header h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .form-header p { font-size: 12px; color: rgba(255,255,255,0.68); }
+  .form-phone-row { display: flex; align-items: center; gap: 9px; background: rgba(255,255,255,0.1); border-radius: 7px; padding: 10px 14px; margin-top: 14px; }
+  .form-phone-row i { color: #4da3ff; font-size: 18px; }
+  .form-phone-row span { font-size: 15px; font-weight: 600; color: #fff; }
+  .form-body { padding: 20px 22px; }
+  .form-group { margin-bottom: 14px; }
+  .form-label { font-size: 12px; color: #6b7280; margin-bottom: 5px; display: block; font-weight: 500; }
+  .form-body input, .form-body select, .form-body textarea { width: 100%; font-size: 13px; padding: 9px 12px; border: 1px solid #d1d5db; border-radius: 6px; background: #f9fafb; color: #1a1a2e; outline: none; font-family: 'Inter', sans-serif; transition: border-color 0.2s; }
+  .form-body input:focus, .form-body select:focus, .form-body textarea:focus { border-color: #2d5fa8; background: #fff; }
+  .form-submit { width: 100%; background: #1a3a6b; color: #fff; font-size: 14px; font-weight: 600; padding: 12px; border-radius: 7px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s; font-family: 'Inter', sans-serif; }
+  .form-submit:hover { background: #2d5fa8; }
+  .form-note { font-size: 11px; color: #9ca3af; text-align: center; margin-top: 10px; line-height: 1.5; }
+  .form-note a { color: #6b7280; }
+
+  /* PRODUCTS SECTION */
+  .products-section { padding: 36px 40px; background: #fff; border-top: 1px solid #e8edf5; border-bottom: 1px solid #e8edf5; }
+  .products-inner { max-width: 1200px; margin: 0 auto; }
+  .products-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 18px; }
+  .view-all-btn { font-size: 13px; color: #1a3a6b; display: flex; align-items: center; gap: 5px; text-decoration: none; border: 1px solid #1a3a6b; padding: 7px 16px; border-radius: 7px; transition: background 0.2s; }
+  .view-all-btn:hover { background: #f0f5ff; }
+  .filter-row { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .filter-btn { font-size: 12px; padding: 6px 16px; border-radius: 20px; border: 1px solid #d1d5db; background: #fff; color: #6b7280; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s; }
+  .filter-btn:hover { border-color: #1a3a6b; color: #1a3a6b; }
+  .filter-btn.active { background: #1a3a6b; color: #fff; border-color: #1a3a6b; }
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .product-card { background: #fff; border: 1px solid #e8edf5; border-radius: 10px; overflow: hidden; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+  .product-card:hover { border-color: #2d5fa8; box-shadow: 0 4px 16px rgba(45,95,168,0.1); }
+  .product-img { background: #f5f7fa; height: 140px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; position: relative; border-bottom: 1px solid #e8edf5; }
+  .product-img i { font-size: 44px; color: #b5d4f4; }
+  .product-img-label { font-size: 10px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.06em; }
+  .product-badge { position: absolute; top: 10px; left: 10px; font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
+  .badge-new { background: #e6f1fb; color: #0c447c; }
+  .badge-sale { background: #fee2e2; color: #991b1b; }
+  .badge-hot { background: #fef3c7; color: #92400e; }
+  .product-body { padding: 14px; }
+  .product-brand { font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; color: #9ca3af; margin-bottom: 3px; font-weight: 600; }
+  .product-name { font-size: 13px; font-weight: 600; color: #1a1a2e; margin-bottom: 4px; line-height: 1.3; }
+  .product-stars { display: flex; align-items: center; gap: 2px; margin-bottom: 6px; }
+  .product-stars i { font-size: 11px; color: #f59e0b; }
+  .product-reviews { font-size: 10px; color: #9ca3af; margin-left: 3px; }
+  .product-desc { font-size: 11px; color: #6b7280; line-height: 1.5; margin-bottom: 12px; }
+  .product-footer { display: flex; justify-content: space-between; align-items: center; }
+  .product-price { font-size: 16px; font-weight: 600; color: #1a3a6b; }
+  .product-price-old { font-size: 11px; color: #9ca3af; text-decoration: line-through; margin-left: 5px; }
+  .buy-btn { font-size: 11px; background: #1a3a6b; color: #fff; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 500; transition: background 0.2s; }
+  .buy-btn:hover { background: #2d5fa8; }
+
+  /* HOW IT WORKS */
+  .how-section { padding: 40px; background: #f5f7fa; }
+  .how-inner { max-width: 1200px; margin: 0 auto; }
+  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 24px; }
+  .step-card { background: #fff; border: 1px solid #e8edf5; border-radius: 10px; padding: 20px; }
+  .step-num { width: 32px; height: 32px; background: #e6f1fb; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: #1a3a6b; margin-bottom: 14px; }
+  .step-title { font-size: 14px; font-weight: 600; color: #1a1a2e; margin-bottom: 7px; }
+  .step-desc { font-size: 12px; color: #6b7280; line-height: 1.55; }
+
+  /* FAQ */
+  .faq-section { padding: 40px; max-width: 1200px; margin: 0 auto; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  .faq-item { background: #fff; border: 1px solid #e8edf5; border-radius: 10px; padding: 18px; }
+  .faq-q { font-size: 13px; font-weight: 600; color: #1a1a2e; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; }
+  .faq-q i { color: #2d5fa8; font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+  .faq-a { font-size: 12px; color: #6b7280; line-height: 1.65; padding-left: 23px; }
+
+  /* FOOTER */
+  footer { background: #0f2246; padding: 40px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 28px; max-width: 1200px; margin: 0 auto 28px; }
+  .footer-brand p { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-top: 10px; max-width: 230px; }
+  .footer-logo-text { font-size: 18px; font-weight: 600; color: #fff; }
+  .footer-logo-text span { color: #4da3ff; }
+  .footer-col h4 { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.07em; }
+  .footer-col a { display: block; font-size: 12px; color: rgba(255,255,255,0.45); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+  .footer-col a:hover { color: rgba(255,255,255,0.85); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.35); }
+  .footer-bottom-links { display: flex; gap: 18px; }
+  .footer-bottom-links a { font-size: 11px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+
+  /* DISCLAIMER */
+  .disclaimer { background: #091830; padding: 14px 40px; text-align: center; }
+  .disclaimer p { font-size: 11px; color: rgba(255,255,255,0.28); line-height: 1.7; max-width: 960px; margin: 0 auto; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .main-wrap { grid-template-columns: 1fr; }
+    .form-card { position: static; }
+    .nav-links { display: none; }
+    .trust-inner { grid-template-columns: repeat(2, 1fr); }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .nav { padding: 0 20px; }
+    .hero { padding: 40px 20px 50px; }
+    .hero h1 { font-size: 26px; }
+    .main-wrap, .products-section, .how-section, .faq-section, footer, .disclaimer { padding-left: 20px; padding-right: 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .brands-inner { justify-content: flex-start; }
+    .brand-item { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon"><i class="ti ti-printer"></i></div>
+    <span class="nav-logo-text">Printer<span>Fix</span>Pro</span>
+  </a>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#how">How it works</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="tel:+18000000000" class="nav-phone"><i class="ti ti-phone-call"></i> +1 (800) 000-0000</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">⚡ Available 24/7 — Expert Printer Support</div>
+  <h1>Fix Your Printer Issues<br><span>Fast & Easy</span></h1>
+  <p>Professional setup, driver installation, and troubleshooting for HP, Canon, Epson & Brother printers. Get connected in minutes.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-primary"><i class="ti ti-headset"></i> Talk to an Expert</a>
+    <a href="#products" class="btn-secondary"><i class="ti ti-download"></i> Download Drivers</a>
+  </div>
+</section>
+
+<!-- BRANDS BAR -->
+<div class="brands-bar">
+  <div class="brands-inner">
+    <div class="brand-item"><i class="ti ti-printer brand-icon"></i><span class="brand-name">HP</span></div>
+    <div class="brand-item"><i class="ti ti-printer brand-icon"></i><span class="brand-name">Canon</span></div>
+    <div class="brand-item"><i class="ti ti-printer brand-icon"></i><span class="brand-name">Epson</span></div>
+    <div class="brand-item"><i class="ti ti-printer brand-icon"></i><span class="brand-name">Brother</span></div>
+    <div class="brand-item"><i class="ti ti-dots brand-icon"></i><span class="brand-name">Others</span></div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><i class="ti ti-clock trust-icon"></i><div class="trust-text"><strong>24/7 Support</strong><span>Always available</span></div></div>
+    <div class="trust-item"><i class="ti ti-shield-check trust-icon"></i><div class="trust-text"><strong>Certified Experts</strong><span>Trained technicians</span></div></div>
+    <div class="trust-item"><i class="ti ti-bolt trust-icon"></i><div class="trust-text"><strong>Fast Resolution</strong><span>Avg. 30 minutes</span></div></div>
+    <div class="trust-item"><i class="ti ti-star trust-icon"></i><div class="trust-text"><strong>4.8/5 Rating</strong><span>10,000+ customers</span></div></div>
+  </div>
+</div>
+
+<!-- MAIN: SERVICES + FORM -->
+<div class="main-wrap" id="services">
+  <div>
+    <p class="section-label">Our services</p>
+    <p class="section-heading">What we help you with</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="sc-icon"><i class="ti ti-settings"></i></div>
+        <p class="sc-title">Printer Setup & Installation</p>
+        <p class="sc-desc">Complete setup for new printers including driver installation and system configuration.</p>
+        <p class="sc-link"><i class="ti ti-arrow-right"></i> Learn more</p>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon"><i class="ti ti-wifi"></i></div>
+        <p class="sc-title">Wireless Printer Setup</p>
+        <p class="sc-desc">Connect your printer to WiFi and set up wireless printing from any device.</p>
+        <p class="sc-link"><i class="ti ti-arrow-right"></i> Learn more</p>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon"><i class="ti ti-download"></i></div>
+        <p class="sc-title">Driver Download & Update</p>
+        <p class="sc-desc">Download and install the latest drivers for your specific printer model quickly.</p>
+        <p class="sc-link"><i class="ti ti-arrow-right"></i> Learn more</p>
+      </div>
+      <div class="service-card">
+        <div class="sc-icon"><i class="ti ti-alert-circle"></i></div>
+        <p class="sc-title">Printer Offline Fix</p>
+        <p class="sc-desc">Diagnose and resolve printer offline errors so you can print without interruption.</p>
+        <p class="sc-link"><i class="ti ti-arrow-right"></i> Learn more</p>
+      </div>
+    </div>
+
+    <div class="problems-box">
+      <p class="problems-title"><i class="ti ti-info-circle"></i> Common printer problems we fix</p>
+      <ul class="problems-list">
+        <li><i class="ti ti-check"></i> Printer showing offline or not detected by computer</li>
+        <li><i class="ti ti-check"></i> Paper jam errors and paper feed issues</li>
+        <li><i class="ti ti-check"></i> Print quality problems — blurry, faded, or streaked prints</li>
+        <li><i class="ti ti-check"></i> Printer not connecting to WiFi or network</li>
+        <li><i class="ti ti-check"></i> Ink cartridge not recognized or low ink errors</li>
+        <li><i class="ti ti-check"></i> Slow printing or print jobs stuck in queue</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SUPPORT FORM -->
+  <div id="contact">
+    <div class="form-card">
+      <div class="form-header">
+        <h3>Get Instant Printer Support</h3>
+        <p>Fill the form and our expert will call you back</p>
+        <div class="form-phone-row"><i class="ti ti-phone"></i><span>+1 (800) 000-0000</span></div>
+      </div>
+      <div class="form-body">
+        <div class="form-group">
+          <label class="form-label">Your full name</label>
+          <input type="text" placeholder="e.g. John Anderson">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone number</label>
+          <input type="tel" placeholder="+1 (000) 000-0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email address</label>
+          <input type="email" placeholder="you@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Printer brand</label>
+          <select>
+            <option value="">Select your printer brand</option>
+            <option>HP</option>
+            <option>Canon</option>
+            <option>Epson</option>
+            <option>Brother</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Issue type</label>
+          <select>
+            <option value="">What's the problem?</option>
+            <option>Printer setup & installation</option>
+            <option>Printer offline</option>
+            <option>WiFi / wireless setup</option>
+            <option>Driver download</option>
+            <option>Print quality issue</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button class="form-submit"><i class="ti ti-headset"></i> Get Support Now</button>
+        <p class="form-note">By submitting you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS SECTION -->
+<section class="products-section" id="products">
+  <div class="products-inner">
+    <div class="products-top">
+      <div>
+        <p class="section-label">Shop printers</p>
+        <p class="section-heading">Featured printer models</p>
+      </div>
+      <a href="#" class="view-all-btn">View all <i class="ti ti-arrow-right"></i></a>
+    </div>
+
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterProducts('All', this)">All</button>
+      <button class="filter-btn" onclick="filterProducts('HP', this)">HP</button>
+      <button class="filter-btn" onclick="filterProducts('Canon', this)">Canon</button>
+      <button class="filter-btn" onclick="filterProducts('Epson', this)">Epson</button>
+      <button class="filter-btn" onclick="filterProducts('Brother', this)">Brother</button>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card" data-brand="HP">
+        <div class="product-img">
+          <span class="product-badge badge-new">New</span>
+          <i class="ti ti-printer"></i>
+          <span class="product-img-label">Add product image</span>
+        </div>
+        <div class="product-body">
+          <p class="product-brand">HP</p>
+          <p class="product-name">HP DeskJet 2755e</p>
+          <div class="product-stars">
+            <i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i>
+            <span class="product-reviews">(128)</span>
+          </div>
+          <p class="product-desc">All-in-one wireless inkjet printer for home and office use.</p>
+          <div class="product-footer">
+            <div><span class="product-price">$89.99</span><span class="product-price-old">$109.99</span></div>
+            <button class="buy-btn">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-brand="Canon">
+        <div class="product-img">
+          <span class="product-badge badge-hot">Hot</span>
+          <i class="ti ti-printer"></i>
+          <span class="product-img-label">Add product image</span>
+        </div>
+        <div class="product-body">
+          <p class="product-brand">Canon</p>
+          <p class="product-name">Canon PIXMA MG3620</p>
+          <div class="product-stars">
+            <i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i>
+            <span class="product-reviews">(94)</span>
+          </div>
+          <p class="product-desc">Wireless color inkjet printer with mobile printing support.</p>
+          <div class="product-footer">
+            <div><span class="product-price">$74.99</span></div>
+            <button class="buy-btn">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-brand="Epson">
+        <div class="product-img">
+          <span class="product-badge badge-sale">Sale</span>
+          <i class="ti ti-printer"></i>
+          <span class="product-img-label">Add product image</span>
+        </div>
+        <div class="product-body">
+          <p class="product-brand">Epson</p>
+          <p class="product-name">Epson EcoTank ET-2400</p>
+          <div class="product-stars">
+            <i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i>
+            <span class="product-reviews">(211)</span>
+          </div>
+          <p class="product-desc">Cartridge-free printing with high-capacity ink tanks.</p>
+          <div class="product-footer">
+            <div><span class="product-price">$129.99</span><span class="product-price-old">$179.99</span></div>
+            <button class="buy-btn">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-brand="Brother">
+        <div class="product-img">
+          <i class="ti ti-printer"></i>
+          <span class="product-img-label">Add product image</span>
+        </div>
+        <div class="product-body">
+          <p class="product-brand">Brother</p>
+          <p class="product-name">Brother HL-L2350DW</p>
+          <div class="product-stars">
+            <i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i>
+            <span class="product-reviews">(76)</span>
+          </div>
+          <p class="product-desc">Compact wireless laser printer with automatic duplex printing.</p>
+          <div class="product-footer">
+            <div><span class="product-price">$119.99</span></div>
+            <button class="buy-btn">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-brand="HP">
+        <div class="product-img">
+          <span class="product-badge badge-new">New</span>
+          <i class="ti ti-printer"></i>
+          <span class="product-img-label">Add product image</span>
+        </div>
+        <div class="product-body">
+          <p class="product-brand">HP</p>
+          <p class="product-name">HP OfficeJet Pro 9015e</p>
+          <div class="product-stars">
+            <i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i>
+            <span class="product-reviews">(183)</span>
+          </div>
+          <p class="product-desc">Smart all-in-one printer for home office productivity.</p>
+          <div class="product-footer">
+            <div><span class="product-price">$199.99</span><span class="product-price-old">$249.99</span></div>
+            <button class="buy-btn">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-brand="Canon">
+        <div class="product-img">
+          <span class="product-badge badge-hot">Hot</span>
+          <i class="ti ti-printer"></i>
+          <span class="product-img-label">Add product image</span>
+        </div>
+        <div class="product-body">
+          <p class="product-brand">Canon</p>
+          <p class="product-name">Canon MAXIFY GX4020</p>
+          <div class="product-stars">
+            <i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i>
+            <span class="product-reviews">(57)</span>
+          </div>
+          <p class="product-desc">MegaTank inkjet for high-volume small business printing.</p>
+          <div class="product-footer">
+            <div><span class="product-price">$249.99</span></div>
+            <button class="buy-btn">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-brand="Epson">
+        <div class="product-img">
+          <span class="product-badge badge-sale">Sale</span>
+          <i class="ti ti-printer"></i>
+          <span class="product-img-label">Add product image</span>
+        </div>
+        <div class="product-body">
+          <p class="product-brand">Epson</p>
+          <p class="product-name">Epson WorkForce WF-2930</p>
+          <div class="product-stars">
+            <i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i>
+            <span class="product-reviews">(142)</span>
+          </div>
+          <p class="product-desc">Wireless all-in-one inkjet with fax and automatic document feeder.</p>
+          <div class="product-footer">
+            <div><span class="product-price">$99.99</span><span class="product-price-old">$129.99</span></div>
+            <button class="buy-btn">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-brand="Brother">
+        <div class="product-img">
+          <i class="ti ti-printer"></i>
+          <span class="product-img-label">Add product image</span>
+        </div>
+        <div class="product-body">
+          <p class="product-brand">Brother</p>
+          <p class="product-name">Brother MFC-J4335DW</p>
+          <div class="product-stars">
+            <i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i>
+            <span class="product-reviews">(89)</span>
+          </div>
+          <p class="product-desc">INKvestment Tank all-in-one color inkjet with low-cost printing.</p>
+          <div class="product-footer">
+            <div><span class="product-price">$159.99</span></div>
+            <button class="buy-btn">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-brand="HP">
+        <div class="product-img">
+          <span class="product-badge badge-new">New</span>
+          <i class="ti ti-printer"></i>
+          <span class="product-img-label">Add product image</span>
+        </div>
+        <div class="product-body">
+          <p class="product-brand">HP</p>
+          <p class="product-name">HP LaserJet M110we</p>
+          <div class="product-stars">
+            <i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i>
+            <span class="product-reviews">(64)</span>
+          </div>
+          <p class="product-desc">Compact mono laser printer built for personal and student use.</p>
+          <div class="product-footer">
+            <div><span class="product-price">$139.99</span><span class="product-price-old">$159.99</span></div>
+            <button class="buy-btn">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="how-inner">
+    <p class="section-label">How it works</p>
+    <p class="section-heading">Get your printer fixed in 4 simple steps</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><p class="step-title">Fill the form</p><p class="step-desc">Enter your details and describe your printer issue in our support form above.</p></div>
+      <div class="step-card"><div class="step-num">2</div><p class="step-title">Expert calls you</p><p class="step-desc">A certified technician will call you back within minutes of your submission.</p></div>
+      <div class="step-card"><div class="step-num">3</div><p class="step-title">Remote diagnosis</p><p class="step-desc">Our expert diagnoses your issue remotely and walks you through the solution.</p></div>
+      <div class="step-card"><div class="step-num">4</div><p class="step-title">Issue resolved</p><p class="step-desc">Your printer is back up and running. We follow up to confirm everything works.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <p class="section-label">FAQs</p>
+  <p class="section-heading">Common questions about printer support</p>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <p class="faq-q"><i class="ti ti-help-circle"></i> Why is my printer showing offline?</p>
+      <p class="faq-a">This is usually caused by a lost connection between your printer and computer. Our experts can diagnose and fix this in under 10 minutes.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q"><i class="ti ti-help-circle"></i> How do I connect my printer to WiFi?</p>
+      <p class="faq-a">WiFi setup steps vary by model. Our technicians will guide you through the exact steps for your specific printer model and operating system.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q"><i class="ti ti-help-circle"></i> Where can I download printer drivers?</p>
+      <p class="faq-a">Fill in the support form with your printer model and we'll help you find, download, and install the correct driver for your OS version.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q"><i class="ti ti-help-circle"></i> Is PrinterFixPro affiliated with HP or Canon?</p>
+      <p class="faq-a">No. PrinterFixPro is an independent third-party support provider. We are not affiliated with HP, Canon, Epson, Brother, or any other manufacturer.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q"><i class="ti ti-help-circle"></i> How much does support cost?</p>
+      <p class="faq-a">Our support plans are affordable and transparent. Pricing depends on the type of issue. Our experts will explain all options before any charges apply.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q"><i class="ti ti-help-circle"></i> Do you support both Windows and Mac?</p>
+      <p class="faq-a">Yes! Our technicians are trained to support all major operating systems including Windows 10, Windows 11, and all recent versions of macOS.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo-text">Printer<span>Fix</span>Pro</span>
+      <p>Independent third-party printer support and setup services. Available 24/7 for all major printer brands worldwide.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Brands</h4>
+      <a href="#">HP support</a>
+      <a href="#">Canon support</a>
+      <a href="#">Epson support</a>
+      <a href="#">Brother support</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Printer setup</a>
+      <a href="#">WiFi setup</a>
+      <a href="#">Driver download</a>
+      <a href="#">Offline fix</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="terms.html">Terms & conditions</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="refund.html">Refund policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 PrinterFixPro. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy policy</a>
+      <a href="terms.html">Terms & conditions</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<div class="disclaimer">
+  <p>PrinterFixPro is an independent third-party technical support service provider and is not affiliated with, endorsed by, or connected to HP Inc., Canon Inc., Seiko Epson Corporation, Brother Industries Ltd., or any other printer manufacturer. All brand names, trademarks, and logos are the property of their respective owners and are used for identification purposes only.</p>
+</div>
+
+<script>
+  function filterProducts(brand, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.style.display = (brand === 'All' || card.dataset.brand === brand) ? 'block' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
